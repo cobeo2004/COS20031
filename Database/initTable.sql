@@ -5,18 +5,22 @@
 
 
 -- TODO: Drop any databases if exists (Cò)
-DROP DATABASE IF EXISTS EquipmentDescriptionTable
-DROP DATABASE IF EXISTS EquipmentTable
-DROP DATABASE IF EXISTS FaceSizeDescriptionTable
-DROP DATABASE IF EXISTS RoundDescriptionTable
-DROP DATABASE IF EXISTS ScoresTable
-DROP DATABASE IF EXISTS ClubCompetitionTable
-DROP DATABASE IF EXISTS ArcherTable
+DROP TABLE IF EXISTS EquipmentDescriptionTable
+DROP TABLE IF EXISTS EquipmentTable
+DROP TABLE IF EXISTS FaceSizeDescriptionTable
+DROP TABLE IF EXISTS RoundDescriptionTable
+DROP TABLE IF EXISTS ScoresTable
+DROP TABLE IF EXISTS ClubCompetitionTable
+DROP TABLE IF EXISTS ArcherTable
 
 
 -- TODO: Create MainCategoryTable (Mai An)
 
 -- TODO: Create ScoresTable (Cò)
+CREATE TABLE ScoresTable(
+    ScoreID INT NOT NULL AUTO_INCREMENT,
+    NumberOfScore INT NOT NULL,
+);
 
 -- TODO: Create RoundDescriptionTable (Đạt)
 
