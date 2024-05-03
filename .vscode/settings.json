@@ -1,0 +1,17 @@
+{
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default",
+        "enableSsl": "Disabled"
+      },
+      "previewLimit": 50,
+      "server": "feenix-mariadb.swin.edu.au",
+      "port": 3306,
+      "driver": "MariaDB",
+      "name": "MariaDB Swinburne",
+      "database": "cos20031_5_db",
+      "username": "cos20031_5"
+    }
+  ]
+}

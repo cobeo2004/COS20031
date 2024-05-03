@@ -11,7 +11,12 @@
     <?php
     //write command to check connection
     require_once("constants.php");
-    $connection = connect();
+    $conn = connect();
+    if ($conn) {
+        echo "Connected successfully";
+    } else {
+        echo "Connection failed";
+    }
     ?>
     <h1>Toi la cho ten Dat Hoang</h1>
     <h2>Tuan Minh ngu l</h2>
