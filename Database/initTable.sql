@@ -5,6 +5,14 @@
 
 
 -- TODO: Drop any databases if exists (Cò)
+DROP DATABASE IF EXISTS EquipmentDescriptionTable
+DROP DATABASE IF EXISTS EquipmentTable
+DROP DATABASE IF EXISTS FaceSizeDescriptionTable
+DROP DATABASE IF EXISTS RoundDescriptionTable
+DROP DATABASE IF EXISTS ScoresTable
+DROP DATABASE IF EXISTS ClubCompetitionTable
+DROP DATABASE IF EXISTS ArcherTable
+
 
 -- TODO: Create MainCategoryTable (Mai An)
 
