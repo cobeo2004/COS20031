@@ -41,6 +41,18 @@ CREATE TABLE ScoresTable(
 -- TODO: Create FaceSizeDescriptionTable (Mai An)
 
 -- TODO: Create EquipmentTable (Chíp)
+CREATE TABLE EquipmentDescriptionTable (
+    EquipmentName VARCHAR(30) PRIMARY KEY,
+    EquipmentDescription TEXT
+);
+
+CREATE TABLE EquipmentTable (
+    RoundName VARCHAR(30) PRIMARY KEY,
+    Category VARCHAR(30), 
+    Equipment VARCHAR(30), 
+    FOREIGN KEY (Equipment) REFERENCES ScoresTable(Equipment)
+ ); 
+
 
 -- TODO: Create EquipmentDescriptionTable (Chíp)
 
