@@ -48,10 +48,10 @@ CREATE TABLE ScoresTable(
 
 -- TODO: Create Archer Table (Vinh)
 CREATE TABLE ArcherTable (
-    ArcherID            INTEGER(10)
-,   ArcherFirstName     VARCHAR(30)
-,   ArcherLastName      VARCHAR(30)
-,   ArcherGender        VARCHAR(3)
-,   ArcherDOB           DATE
-,   PRIMARY KEY (ArcherID)
+    ArcherID            INTEGER(10),
+    ArcherFirstName     VARCHAR(30),
+    ArcherLastName      VARCHAR(30),
+    ArcherGender        VARCHAR(3),
+    ArcherDOB           DATE
+    PRIMARY KEY (ArcherID)
 );
