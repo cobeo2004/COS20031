@@ -37,6 +37,21 @@ CREATE TABLE ScoresTable(
 );
 
 -- TODO: Create RoundDescriptionTable (Đạt)
+CREATE TABLE RoundDescriptionTable(
+    RoundName VARCHAR(30) NOT NULL,
+    ArrowDistance10m INT,
+    ArrowDistance20m INT,
+    ArrowDistance30m INT,
+    ArrowDistance40m INT,
+    ArrowDistance50m INT,
+    ArrowDistance60m INT,
+    ArrowDistance70m INT,
+    ArrowDistance90m INT,
+
+    --Primary Key
+    PRIMARY KEY (RoundName)
+);
+
 
 -- TODO: Create FaceSizeDescriptionTable (Mai An)
 
