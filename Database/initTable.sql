@@ -15,6 +15,14 @@ DROP TABLE IF EXISTS ArcherTable
 
 
 -- TODO: Create MainCategoryTable (Mai An)
+CREATE TABLE MainCategoryTable(
+    MainCategoryID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    RoundName NOT NULL FOREIGN KEY REFERENCES RoundDescriptionTable(RoundName),
+    ClubCompetitionID FOREIGN KEY REFERENCES ClubCompetitionTable(ClubCompetitionID),
+    ArcherID FOREIGN KEY REFERENCES ArcherTable(ArcherID),
+    Level VARCHAR(30),
+    YearOfRegister YEAR 
+);
 
 -- TODO: Create ScoresTable (Cò)
 CREATE TABLE ScoresTable(
@@ -54,6 +62,10 @@ CREATE TABLE RoundDescriptionTable(
 
 
 -- TODO: Create FaceSizeDescriptionTable (Mai An)
+CREATE TABLE FaceSizeDescriptionTable(
+    SizeValue INT NOT NULL ENUM('80 cm', '122 cm', '60 cm'),
+    NumberOfArrows INT NOT NULL ENUM(30, 36, 72, 90)
+);
 
 -- TODO: Create EquipmentTable (Chíp)
 CREATE TABLE EquipmentDescriptionTable (
