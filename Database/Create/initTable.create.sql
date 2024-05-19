@@ -4,7 +4,7 @@
 -- Description: This script is used to create the database and tables for the project
 
 
--- TODO: Drop any databases if exists (Cò)
+-- TODO: Drop any old databases if exists (Simon)
 DROP TABLE IF EXISTS EquipmentDescriptionTable
 DROP TABLE IF EXISTS EquipmentTable
 DROP TABLE IF EXISTS FaceSizeDescriptionTable
@@ -13,7 +13,18 @@ DROP TABLE IF EXISTS ScoresTable
 DROP TABLE IF EXISTS ClubCompetitionTable
 DROP TABLE IF EXISTS ArcherTable
 
-
+-- TODO: Drop databases if exists (Simon)
+DROP TABLE IF EXISTS ClassTable
+DROP TABLE IF EXISTS CategoryTable
+DROP TABLE IF EXISTS EquipmentTable
+DROP TABLE IF EXISTS CompetitionTable
+DROP TABLE IF EXISTS RoundTable
+DROP TABLE IF EXISTS ArcherTable
+DROP TABLE IF EXISTS RoundDefinitionTable
+DROP TABLE IF EXISTS EndScoreTable
+DROP TABLE IF EXISTS RangeDefinitionTable
+DROP TABLE IF EXISTS TargetFaceSizeTable
+DROP TABLE IF EXISTS RangeTable
 -- TODO: Create MainCategoryTable (Mai An)
 CREATE TABLE MainCategoryTable(
     MainCategoryID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -21,10 +32,10 @@ CREATE TABLE MainCategoryTable(
     ClubCompetitionID FOREIGN KEY REFERENCES ClubCompetitionTable(ClubCompetitionID),
     ArcherID FOREIGN KEY REFERENCES ArcherTable(ArcherID),
     Level VARCHAR(30),
-    YearOfRegister YEAR 
+    YearOfRegister YEAR
 );
 
--- TODO: Create ScoresTable (Cò)
+-- TODO: Create ScoresTable (Simon)
 CREATE TABLE ScoresTable(
     ScoreID INT NOT NULL AUTO_INCREMENT,
     NumberOfScore ENUM('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'),
@@ -75,10 +86,10 @@ CREATE TABLE EquipmentDescriptionTable (
 
 CREATE TABLE EquipmentTable (
     RoundName VARCHAR(30) PRIMARY KEY,
-    Category VARCHAR(30), 
-    Equipment VARCHAR(30), 
+    Category VARCHAR(30),
+    Equipment VARCHAR(30),
     FOREIGN KEY (Equipment) REFERENCES ScoresTable(Equipment)
- ); 
+ );
 
 
 -- TODO: Create EquipmentDescriptionTable (Chíp)
