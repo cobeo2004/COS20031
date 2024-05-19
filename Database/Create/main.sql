@@ -109,7 +109,7 @@ CREATE TABLE CompetitionTable (
 CREATE TABLE RangeTable(
     RangeID INT NOT NULL AUTO_INCREMENT,
     RangeDefinitionID INT NOT NULL,
-    RoundDefinitionID INT NOT NULL,
+    RoundDefinitionID VARCHAR(255) NOT NULL,
     EndNumber INT NOT NULL,
     NumberOfArrows INT NOT NULL,
     -- Primary Key
