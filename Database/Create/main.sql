@@ -3,6 +3,9 @@
 -- Date 3-May-2024
 -- Description: This script is used to create the database and tables for the project
 
+-- Use Database
+USE cos20031_5_db;
+
 
 -- TODO: Drop any old databases if exists
 DROP TABLE IF EXISTS EquipmentDescriptionTable;
@@ -23,7 +26,7 @@ DROP TABLE IF EXISTS EndScoreTable;
 DROP TABLE IF EXISTS RangeDefinitionTable;
 DROP TABLE IF EXISTS TargetFaceSizeTable;
 DROP TABLE IF EXISTS RangeTable;
---
+
 
 -- TODO: Create ClassTable
 CREATE TABLE ClassTable (
@@ -44,7 +47,7 @@ CREATE TABLE EquipmentTable(
 
 -- TODO: Create RangeDefinitionTable
 CREATE TABLE RangeDefinitionTable(
-    RangeDefinitionID INT NOT NULL AUTO_INCREMENT,
+    RangeDefinitionID INT NOT NULL,
     DistanceInMeter INT NOT NULL,
     -- Primary Key
     PRIMARY KEY (RangeDefinitionID)
@@ -52,7 +55,7 @@ CREATE TABLE RangeDefinitionTable(
 
 -- TODO: Create RoundDefinitionTable
 CREATE TABLE RoundDefinitionTable(
-    RoundDefinitionID INT NOT NULL,
+    RoundDefinitionID VARCHAR(255) NOT NULL,
     PossibleScore INT NOT NULL,
     TotalArrows INT NOT NULL,
     -- Primary Key
