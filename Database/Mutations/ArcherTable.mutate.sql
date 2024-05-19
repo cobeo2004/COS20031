@@ -1,3 +1,5 @@
+-- Male Archer --
+
 INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Kevin', 'James', 'Male', '1980-05-14');
 INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Gary', 'Piastri', 'Male', '1983-07-21');
 INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Oscar', 'Edwards', 'Male', '1990-12-03');
@@ -60,3 +62,37 @@ INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDO
 INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Anthony', 'Payton', 'Male', '1986-04-20');
 INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Ethan', 'Durant', 'Male', '2000-10-02');
 INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Charlie', 'James', 'Male', '1992-03-26');
+
+-- Women Archer --
+
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Krystal', 'Jensen', 'Female', '1983-03-21');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Bethany', 'Kyler', 'Female', '1987-08-14');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Anna', 'Quincy', 'Female', '1990-11-30');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Emma', 'Monroe', 'Female', '1982-05-10');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Fiona', 'Lee', 'Female', '1994-02-22');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Jakata', 'Ming', 'Female', '1988-06-07');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Oklahoma', 'Echo', 'Female', '2001-09-19');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Mia', 'Moana', 'Female', '1996-12-03');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Krystal', 'Kyler', 'Female', '1985-04-15');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Bethany', 'Quincy', 'Female', '1992-07-27');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Anna', 'Monroe', 'Female', '1989-03-12');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Emma', 'Lee', 'Female', '1998-10-05');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Fiona', 'Ming', 'Female', '1981-06-25');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Jakata', 'Echo', 'Female', '1993-11-08');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Oklahoma', 'Moana', 'Female', '2002-01-30');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Mia', 'Jensen', 'Female', '1984-08-22');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Krystal', 'Quincy', 'Female', '1987-12-17');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Bethany', 'Monroe', 'Female', '1991-09-04');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Anna', 'Lee', 'Female', '1996-05-29');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Emma', 'Ming', 'Female', '1982-03-14');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Fiona', 'Echo', 'Female', '2000-12-21');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Jakata', 'Moana', 'Female', '1985-07-31');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Oklahoma', 'Jensen', 'Female', '1994-06-16');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Mia', 'Kyler', 'Female', '2001-04-26');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Krystal', 'Monroe', 'Female', '1989-10-10');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Bethany', 'Lee', 'Female', '1983-01-18');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Anna', 'Ming', 'Female', '1998-09-02');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Emma', 'Echo', 'Female', '1991-11-06');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Fiona', 'Moana', 'Female', '2004-08-25');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Jakata', 'Jensen', 'Female', '1986-04-01');
+INSERT INTO ArcherTable (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('Oklahoma', 'Kyler', 'Female', '1995-05-13');
