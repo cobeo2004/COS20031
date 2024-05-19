@@ -5,24 +5,24 @@
 
 
 -- TODO: Drop any old databases if exists
-DROP TABLE IF EXISTS EquipmentDescriptionTable
-DROP TABLE IF EXISTS EquipmentTable
-DROP TABLE IF EXISTS FaceSizeDescriptionTable
-DROP TABLE IF EXISTS RoundDescriptionTable
-DROP TABLE IF EXISTS ScoresTable
-DROP TABLE IF EXISTS ClubCompetitionTable
-DROP TABLE IF EXISTS ArcherTable
-DROP TABLE IF EXISTS ClassTable
-DROP TABLE IF EXISTS CategoryTable
-DROP TABLE IF EXISTS EquipmentTable
-DROP TABLE IF EXISTS CompetitionTable
-DROP TABLE IF EXISTS RoundTable
-DROP TABLE IF EXISTS ArcherTable
-DROP TABLE IF EXISTS RoundDefinitionTable
-DROP TABLE IF EXISTS EndScoreTable
-DROP TABLE IF EXISTS RangeDefinitionTable
-DROP TABLE IF EXISTS TargetFaceSizeTable
-DROP TABLE IF EXISTS RangeTable
+DROP TABLE IF EXISTS EquipmentDescriptionTable;
+DROP TABLE IF EXISTS EquipmentTable;
+DROP TABLE IF EXISTS FaceSizeDescriptionTable;
+DROP TABLE IF EXISTS RoundDescriptionTable;
+DROP TABLE IF EXISTS ScoresTable;
+DROP TABLE IF EXISTS ClubCompetitionTable;
+DROP TABLE IF EXISTS ArcherTable;
+DROP TABLE IF EXISTS ClassTable;
+DROP TABLE IF EXISTS CategoryTable;
+DROP TABLE IF EXISTS EquipmentTable;
+DROP TABLE IF EXISTS CompetitionTable;
+DROP TABLE IF EXISTS RoundTable;
+DROP TABLE IF EXISTS ArcherTable;
+DROP TABLE IF EXISTS RoundDefinitionTable;
+DROP TABLE IF EXISTS EndScoreTable;
+DROP TABLE IF EXISTS RangeDefinitionTable;
+DROP TABLE IF EXISTS TargetFaceSizeTable;
+DROP TABLE IF EXISTS RangeTable;
 --
 
 -- TODO: Create ClassTable
@@ -38,7 +38,7 @@ CREATE TABLE ClassTable (
 CREATE TABLE EquipmentTable(
     EquipmentID INT NOT NULL,
     EquipmentName ENUM('R', 'C', 'B', 'L') NOT NULL,
-    --Primary Key
+    -- Primary Key
     PRIMARY KEY (EquipmentID)
 );
 
@@ -46,7 +46,7 @@ CREATE TABLE EquipmentTable(
 CREATE TABLE RangeDefinitionTable(
     RangeDefinitionID INT NOT NULL AUTO_INCREMENT,
     DistanceInMeter INT NOT NULL,
-    --Primary Key
+    -- Primary Key
     PRIMARY KEY (RangeDefinitionID)
 );
 
@@ -55,7 +55,7 @@ CREATE TABLE RoundDefinitionTable(
     RoundDefinitionID INT NOT NULL,
     PossibleScore INT NOT NULL,
     TotalArrows INT NOT NULL,
-    --Primary Key
+    -- Primary Key
     PRIMARY KEY (RoundDefinitionID)
 );
 
@@ -63,7 +63,7 @@ CREATE TABLE RoundDefinitionTable(
 CREATE TABLE TargetFaceSizeTable(
     TargetFaceID INT NOT NULL,
     TargetFaceSize ENUM('80cm', '122cm') NOT NULL,
-    --Primary Key
+    -- Primary Key
     PRIMARY KEY (TargetFaceID)
 );
 
@@ -86,7 +86,7 @@ CREATE TABLE ArcherTable (
     ArcherLastName VARCHAR(255) NOT NULL,
     ArcherGender ENUM('Male', 'Female') NOT NULL,
     ArcherDOB DATE NOT NULL,
-    --Primary Key
+    -- Primary Key
     PRIMARY KEY (ArcherID)
 );
 
@@ -126,9 +126,9 @@ CREATE TABLE RangeTable(
     RoundDefinitionID INT NOT NULL,
     EndNumber INT NOT NULL,
     NumberOfArrows INT NOT NULL,
-    --Primary Key
+    -- Primary Key
     PRIMARY KEY (RangeID),
-    --Foreign Key
+    -- Foreign Key
     FOREIGN KEY (RangeDefinitionID) REFERENCES RangeDefinitionTable(RangeDefinitionID),
     FOREIGN KEY (RoundDefinitionID) REFERENCES RoundDefinitionTable(RoundDefinitionID)
 );
@@ -140,13 +140,13 @@ CREATE TABLE EndScoreTable(
     Arrow2 TINYINT(1),
     Arrow3 TINYINT(1),
     Arrow4 TINYINT(1),
-    Arrow5 TINYINT(1)
+    Arrow5 TINYINT(1),
     Arrow6 TINYINT(1),
     TotalEndScore INT NOT NULL,
     RangeID INT NOT NULL,
-    --Primary Key
+    -- Primary Key
     PRIMARY KEY (EndID),
-    --Foreign Key
+    -- Foreign Key
     FOREIGN KEY (RangeID) REFERENCES RangeTable(RangeID)
 );
 
