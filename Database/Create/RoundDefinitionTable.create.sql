@@ -1,5 +1,5 @@
 CREATE TABLE RoundDefinitionTable(
-    RoundDefinitionID INT NOT NULL,
+    RoundDefinitionID VARCHAR(255) NOT NULL,
     PossibleScore INT NOT NULL,
     TotalArrows INT NOT NULL,
     --Primary Key
