@@ -30,8 +30,8 @@ INSERT INTO CategoryTable(CategoryID, ClassID, EquipmentID) VALUES
 (20, 10, 4),
 -- U21 Female
 (21, 9, 5),
-(21, 9, 3),
-(21, 9, 4),
+(22, 9, 3),
+(23, 9, 4),
 -- U18 Male
 (24, 12, 5),
 (25, 12, 6),
