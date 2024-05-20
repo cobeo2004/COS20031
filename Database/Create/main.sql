@@ -40,7 +40,7 @@ CREATE TABLE ClassTable (
 -- TODO: Create EquipmentTable
 CREATE TABLE EquipmentTable(
     EquipmentID INT NOT NULL,
-    EquipmentName ENUM('R', 'C', 'B', 'L', 'RC', 'RCB', 'RCBL') NOT NULL,
+    EquipmentName ENUM('R', 'C', 'B', 'L', 'RC', 'RCB', 'RCBL', 'BL') NOT NULL,
     -- Primary Key
     PRIMARY KEY (EquipmentID)
 );
@@ -96,7 +96,7 @@ CREATE TABLE ArcherTable (
 -- TODO: Create CompetitionTable
 CREATE TABLE CompetitionTable (
     CompetitionID INT NOT NULL AUTO_INCREMENT,
-    CategoryID INT NOT NULL,
+    CategoryID INT,
     YearlyClubChampionship BOOLEAN NOT NULL,
     Description VARCHAR(255) NOT NULL,
     -- Primary key
