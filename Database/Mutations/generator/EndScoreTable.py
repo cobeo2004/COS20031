@@ -15,8 +15,8 @@ def generate_sql_insert_statements():
     sql_statements = []
     for range_id in range(1, 14):
         print(range_id)
-        if range_id == 13:
-            for _ in range(3):
+        if range_id <= 5:
+            for _ in range(6):
                 arrows = generate_random_arrows()
                 total_end_score = calculate_total_end_score(arrows)
                 sql = f"""
@@ -26,7 +26,7 @@ VALUES ({arrows[0]}, {arrows[1]}, {arrows[2]}, {arrows[3]}, {arrows[4]}, {arrows
             """
                 sql_statements.append(sql)
         else:
-            for _ in range(4):  # 4 arrow tuples per RangeID
+            for _ in range(5):  # 4 arrow tuples per RangeID
                 arrows = generate_random_arrows()
                 total_end_score = calculate_total_end_score(arrows)
                 sql = f"""
@@ -48,6 +48,7 @@ def write_sql_to_file(filename, sql_statements):
 
 # Generate SQL insert statements
 sql_statements = generate_sql_insert_statements()
+# CHANGE: Đổi cái path này để trỏ vào file SQL nhé
 curr_path = os.getcwd() + "/../EndScoreTable.mutate.sql"
 print(curr_path)
 # Write SQL statements to a file
