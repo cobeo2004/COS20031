@@ -11,5 +11,5 @@ CREATE TABLE EndScoreTable(
     --Primary Key
     PRIMARY KEY (EndID),
     --Foreign Key
-    FOREIGN KEY (RangeID) REFERENCES RangeTable(RangeTypeID)
+    FOREIGN KEY (RangeID) REFERENCES RangeTable(RangeID)
 );
