@@ -70,6 +70,17 @@ CREATE TABLE TargetFaceSizeTable(
     PRIMARY KEY (TargetFaceID)
 );
 
+-- TODO: Create ArcherTable
+CREATE TABLE ArcherTable (
+    ArcherID INT NOT NULL AUTO_INCREMENT,
+    ArcherFirstName VARCHAR(255) NOT NULL,
+    ArcherLastName VARCHAR(255) NOT NULL,
+    ArcherGender ENUM('Male', 'Female') NOT NULL,
+    ArcherDOB DATE NOT NULL,
+    -- Primary Key
+    PRIMARY KEY (ArcherID)
+);
+
 -- TODO: Create CategoryTable
 CREATE TABLE CategoryTable (
     CategoryID INT NOT NULL,
@@ -82,16 +93,7 @@ CREATE TABLE CategoryTable (
     FOREIGN KEY (EquipmentID) REFERENCES EquipmentTable(EquipmentID)
 );
 
--- TODO: Create ArcherTable
-CREATE TABLE ArcherTable (
-    ArcherID INT NOT NULL AUTO_INCREMENT,
-    ArcherFirstName VARCHAR(255) NOT NULL,
-    ArcherLastName VARCHAR(255) NOT NULL,
-    ArcherGender ENUM('Male', 'Female') NOT NULL,
-    ArcherDOB DATE NOT NULL,
-    -- Primary Key
-    PRIMARY KEY (ArcherID)
-);
+
 
 -- TODO: Create CompetitionTable
 CREATE TABLE CompetitionTable (
@@ -118,7 +120,7 @@ CREATE TABLE RangeTable(
     PRIMARY KEY (RangeID),
     -- Foreign Key
     FOREIGN KEY (RangeDefinitionID) REFERENCES RangeDefinitionTable(RangeDefinitionID),
-    FOREIGN KEY (RoundDefinitionID) REFERENCES RoundDefinitionTable(RoundDefinitionID)
+    FOREIGN KEY (RoundDefinitionID) REFERENCES RoundDefinitionTable(RoundDefinitionID),
     FOREIGN KEY (TargetFaceID) REFERENCES TargetFaceSizeTable(TargetFaceID)
 
 );
