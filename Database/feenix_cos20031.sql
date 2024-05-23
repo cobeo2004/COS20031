@@ -590,8 +590,7 @@ ALTER TABLE `CompetitionTable`
 -- Chỉ mục cho bảng `EndScoreTable`
 --
 ALTER TABLE `EndScoreTable`
-  ADD PRIMARY KEY (`EndID`),
-  ADD KEY `idx_RangeID` (`RangeID`);
+  ADD PRIMARY KEY (`EndID`);
 
 --
 -- Chỉ mục cho bảng `EquipmentTable`
@@ -692,7 +691,7 @@ ALTER TABLE `CompetitionTable`
 -- Các ràng buộc cho bảng `EndScoreTable`
 --
 ALTER TABLE `EndScoreTable`
-  ADD CONSTRAINT `fk_RangeID_RangeTypeID` FOREIGN KEY (`RangeID`) REFERENCES `RangeTable` (`RangeTypeID`);
+  ADD CONSTRAINT `EndScoreTable_ibfk_1` FOREIGN KEY (`RangeID`) REFERENCES `RangeTable` (`RangeTypeID`);
 
 --
 -- Các ràng buộc cho bảng `RangeTable`

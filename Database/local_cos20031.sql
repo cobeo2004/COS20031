@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.4.0, for macos14 (arm64)
+-- MySQL dump 10.13  Distrib 8.0.37, for macos14 (arm64)
 --
 -- Host: localhost    Database: cos20031_5_db
 -- ------------------------------------------------------
--- Server version	8.4.0
+-- Server version	8.0.37
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,9 +14,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
--- Point to which schema is using, change this to your schema
-use cos20031_5_db;
 
 --
 -- Table structure for table `ArcherTable`
@@ -137,7 +134,8 @@ CREATE TABLE `EndScoreTable` (
   `TotalEndScore` int NOT NULL,
   `RangeID` int NOT NULL,
   PRIMARY KEY (`EndID`),
-  KEY `idx_RangeID` (`RangeID`)
+  KEY `EndScoreTable_ibfk_1` (`RangeID`),
+  CONSTRAINT `EndScoreTable_ibfk_1` FOREIGN KEY (`RangeID`) REFERENCES `RangeTable` (`RangeTypeID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -314,4 +312,4 @@ INSERT INTO `TargetFaceSizeTable` VALUES (1,'80cm'),(2,'122cm');
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-23 21:30:51
+-- Dump completed on 2024-05-23 22:28:03
