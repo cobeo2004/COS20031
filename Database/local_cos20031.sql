@@ -15,6 +15,10 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+-- Use directives
+CREATE TABLE IF NOT EXISTS cos20031_5_db;
+USE cos20031_5_db;
+
 --
 -- Table structure for table `ArcherTable`
 --
