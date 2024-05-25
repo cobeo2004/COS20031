@@ -1,5 +1,5 @@
 <?php
-interface IArcherController
+interface IArcherService
 {
     public function read(int $limit, int $offset): mysqli_result | bool;
     public function readBy(string $query): mysqli_result | bool;

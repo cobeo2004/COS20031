@@ -18,16 +18,13 @@ switch ($uriSeg[0]) {
         break;
     case 'archer':
         if ($reqMethod == "GET")
-            include_once "./api/Services/archer/read.service.php";
-        if ($reqMethod == "POST") {
-            include_once "./api/Services/archer/create.service.php";
-        }
-        if ($reqMethod == "PUT") {
-            include_once "./api/Services/archer/update.service.php";
-        }
-        if ($reqMethod == "DELETE") {
-            include_once './api/Services/archer/delete.service.php';
-        }
+            include_once "./api/Controller/archer/read.controller.php";
+        if ($reqMethod == "POST")
+            include_once "./api/Controller/archer/create.controller.php";
+        if ($reqMethod == "PUT")
+            include_once "./api/Controller/archer/update.controller.php";
+        if ($reqMethod == "DELETE")
+            include_once './api/Controller/archer/delete.controller.php';
         break;
     default:
         http_response_code(404);

@@ -1,10 +1,10 @@
 <?php
-include_once "api/Controller/ArcherTable/ArcherTable.controller.php";
+include_once "api/Service/ArcherTable/ArcherTable.service.php";
 include_once "api/configs/database.connect.php";
 
 $db = new Database();
 $conn = $db->connectDatabase();
-$archer = new ArcherTableController($conn);
+$archer = new ArcherTableService($conn);
 
 $data = json_decode(file_get_contents("php://input"), true);
 $total_query = "SELECT COUNT(*) FROM ArcherTable";

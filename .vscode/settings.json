@@ -6,12 +6,13 @@
         "enableSsl": "Disabled"
       },
       "previewLimit": 50,
-      "server": "feenix-mariadb.swin.edu.au",
+      "server": "localhost",
       "port": 3306,
-      "driver": "MariaDB",
-      "name": "MariaDB Swinburne",
+      "driver": "MySQL",
+      "name": "Local",
       "database": "cos20031_5_db",
-      "username": "cos20031_5"
+      "username": "root",
+      "askForPassword": true
     }
   ]
 }

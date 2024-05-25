@@ -1,9 +1,9 @@
 <?php
-include_once "api/Controller/ArcherTable/ArcherTable.controller.php";
+include_once "api/Service/ArcherTable/ArcherTable.service.php";
 include_once "api/configs/database.connect.php";
 $db = new Database();
 $conn = $db->connectDatabase();
-$archer = new ArcherTableController($conn);
+$archer = new ArcherTableService($conn);
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $limit = isset($_GET['limit']) ? $_GET['limit'] : 10;
 $offset = ($page - 1) * $limit;

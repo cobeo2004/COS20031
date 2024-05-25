@@ -1,6 +1,6 @@
 <?php
-include "./api/Controller/Controller.interface.php";
-final class ArcherTableController implements IArcherController
+include "./api/Controller/Service.interface.php";
+final class ArcherTableService implements IArcherService
 {
     private mysqli $conn;
     private string $tableName;
