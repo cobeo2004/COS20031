@@ -1,5 +1,7 @@
 <?php
-include "./api/Controller/Service.interface.php";
+include_once "./api/Service/Service.interface.php";
+include_once "./api/DTO/archer/archer.dto.php";
+
 final class ArcherTableService implements IArcherService
 {
     private mysqli $conn;
@@ -31,34 +33,37 @@ final class ArcherTableService implements IArcherService
         return $result;
     }
 
-    public function create(string $firstName, string $lastName, string $gender, string $dob): mysqli_result | bool
+    public function create(CreateArcherDTO $dto): mysqli_result | bool
     {
-        $firstName = mysqli_real_escape_string($this->conn, $firstName);
-        $lastName = mysqli_real_escape_string($this->conn, $lastName);
-        $gender = mysqli_real_escape_string($this->conn, $gender);
-        $dob = mysqli_real_escape_string($this->conn, $dob);
+        $dto->validate();
+        $firstName = mysqli_real_escape_string($this->conn, $dto->ArcherFirstName);
+        $lastName = mysqli_real_escape_string($this->conn, $dto->ArcherLastName);
+        $gender = mysqli_real_escape_string($this->conn, $dto->ArcherGender);
+        $dob = mysqli_real_escape_string($this->conn, $dto->ArcherDOB);
 
         $this->query = "INSERT INTO $this->tableName (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('$firstName', '$lastName', '$gender', '$dob');";
         $result = mysqli_query($this->conn, $this->query);
         return $result;
     }
 
-    public function update(string $id, string $firstName, string $lastName, string $gender, string $dob): mysqli_result | bool
+    public function update(UpdateArcherDTO $dto): mysqli_result | bool
     {
-        $id = intval(mysqli_real_escape_string($this->conn, $id));
-        $firstName = mysqli_real_escape_string($this->conn, $firstName);
-        $lastName = mysqli_real_escape_string($this->conn, $lastName);
-        $gender = mysqli_real_escape_string($this->conn, $gender);
-        $dob = mysqli_real_escape_string($this->conn, $dob);
+        $dto->validate();
+        $id = intval(mysqli_real_escape_string($this->conn, $dto->ArcherID));
+        $firstName = mysqli_real_escape_string($this->conn, $dto->ArcherFirstName);
+        $lastName = mysqli_real_escape_string($this->conn, $dto->ArcherLastName);
+        $gender = mysqli_real_escape_string($this->conn, $dto->ArcherGender);
+        $dob = mysqli_real_escape_string($this->conn, $dto->ArcherDOB);
 
         $this->query = "UPDATE $this->tableName SET ArcherFirstName = '$firstName', ArcherLastName = '$lastName', ArcherGender = '$gender', ArcherDOB = '$dob' WHERE ArcherID = $id;";
         $result = mysqli_query($this->conn, $this->query);
         return $result;
     }
 
-    public function delete(string $id): mysqli_result | bool
+    public function delete(DeleteArcherDTO $dto): mysqli_result | bool
     {
-        $id = intval(mysqli_real_escape_string($this->conn, $id));
+        $dto->validate();
+        $id = intval(mysqli_real_escape_string($this->conn, $dto->ArcherID));
         $this->query = "DELETE FROM $this->tableName WHERE ArcherID = $id;";
         $result = mysqli_query($this->conn, $this->query);
         return $result;
