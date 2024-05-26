@@ -1,12 +1,13 @@
 <?php
 include_once "./api/Service/Service.interface.php";
 include_once "./api/DTO/archer/archer.dto.php";
+include_once "./api/Validator/Validator.strategy.php";
 
 final class ArcherTableService implements IArcherService
 {
     private mysqli $conn;
     private string $tableName;
-    private string $query;
+
     public function __construct(mysqli $conn)
     {
         $this->conn = $conn;
@@ -20,78 +21,84 @@ final class ArcherTableService implements IArcherService
 
     public function read(int $limit, int $offset): mysqli_result | bool
     {
-        $this->query = "SELECT ArcherID, ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB FROM $this->tableName ORDER BY ArcherID ASC LIMIT $limit OFFSET $offset;";
-        $result = mysqli_query($this->conn, $this->query);
-        return $result;
+        $stmt = $this->conn->prepare("SELECT ArcherID, ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB FROM $this->tableName ORDER BY ArcherID ASC LIMIT ? OFFSET ?");
+        $stmt->bind_param("ii", $limit, $offset);
+        $stmt->execute();
+        return $stmt->get_result();
     }
 
     public function readBy(ReadArcherDTO $dto): mysqli_result|bool
     {
         $dto->validate();
+
         $conditions = [];
+        $params = [];
+        $types = "";
 
         if (!empty($dto->ArcherID)) {
-            $id = intval(mysqli_real_escape_string($this->conn, $dto->ArcherID));
-            $conditions[] = "ArcherID = $id";
+            $conditions[] = "ArcherID = ?";
+            $params[] = $dto->ArcherID;
+            $types .= "i"; // assuming ArcherID is an integer
         }
         if (!empty($dto->ArcherFirstName)) {
-            $firstName = mysqli_real_escape_string($this->conn, $dto->ArcherFirstName);
-            $conditions[] = "ArcherFirstName = '$firstName'";
+            $conditions[] = "ArcherFirstName = ?";
+            $params[] = $dto->ArcherFirstName;
+            $types .= "s"; // string
         }
         if (!empty($dto->ArcherLastName)) {
-            $lastName = mysqli_real_escape_string($this->conn, $dto->ArcherLastName);
-            $conditions[] = "ArcherLastName = '$lastName'";
+            $conditions[] = "ArcherLastName = ?";
+            $params[] = $dto->ArcherLastName;
+            $types .= "s"; // string
         }
         if (!empty($dto->ArcherGender)) {
-            $gender = mysqli_real_escape_string($this->conn, $dto->ArcherGender);
-            $conditions[] = "ArcherGender = '$gender'";
+            $conditions[] = "ArcherGender = ?";
+            $params[] = $dto->ArcherGender;
+            $types .= "s"; // string
         }
         if (!empty($dto->ArcherDOB)) {
-            $dob = mysqli_real_escape_string($this->conn, $dto->ArcherDOB);
-            $conditions[] = "ArcherDOB = '$dob'";
+            $conditions[] = "ArcherDOB = ?";
+            $params[] = $dto->ArcherDOB;
+            $types .= "s"; // string
         }
 
+        $query = "SELECT ArcherID, ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB FROM $this->tableName";
         if (count($conditions) > 0) {
-            $this->query = "SELECT ArcherID, ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB FROM $this->tableName WHERE " . implode(" AND ", $conditions) . ";";
+            $query .= " WHERE " . implode(" AND ", $conditions);
         }
 
-        $result = mysqli_query($this->conn, $this->query);
-        return $result;
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param($types, ...$params);
+        $stmt->execute();
+        return $stmt->get_result();
     }
 
     public function create(CreateArcherDTO $dto): mysqli_result | bool
     {
         $dto->validate();
-        $firstName = mysqli_real_escape_string($this->conn, $dto->ArcherFirstName);
-        $lastName = mysqli_real_escape_string($this->conn, $dto->ArcherLastName);
-        $gender = mysqli_real_escape_string($this->conn, $dto->ArcherGender);
-        $dob = mysqli_real_escape_string($this->conn, $dto->ArcherDOB);
 
-        $this->query = "INSERT INTO $this->tableName (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES ('$firstName', '$lastName', '$gender', '$dob');";
-        $result = mysqli_query($this->conn, $this->query);
-        return $result;
+        $stmt = $this->conn->prepare("INSERT INTO $this->tableName (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $dto->ArcherFirstName, $dto->ArcherLastName, $dto->ArcherGender, $dto->ArcherDOB);
+        $stmt->execute();
+        return $stmt->get_result();
     }
 
     public function update(UpdateArcherDTO $dto): mysqli_result | bool
     {
         $dto->validate();
-        $id = intval(mysqli_real_escape_string($this->conn, $dto->ArcherID));
-        $firstName = mysqli_real_escape_string($this->conn, $dto->ArcherFirstName);
-        $lastName = mysqli_real_escape_string($this->conn, $dto->ArcherLastName);
-        $gender = mysqli_real_escape_string($this->conn, $dto->ArcherGender);
-        $dob = mysqli_real_escape_string($this->conn, $dto->ArcherDOB);
 
-        $this->query = "UPDATE $this->tableName SET ArcherFirstName = '$firstName', ArcherLastName = '$lastName', ArcherGender = '$gender', ArcherDOB = '$dob' WHERE ArcherID = $id;";
-        $result = mysqli_query($this->conn, $this->query);
-        return $result;
+        $stmt = $this->conn->prepare("UPDATE $this->tableName SET ArcherFirstName = ?, ArcherLastName = ?, ArcherGender = ?, ArcherDOB = ? WHERE ArcherID = ?");
+        $stmt->bind_param("ssssi", $dto->ArcherFirstName, $dto->ArcherLastName, $dto->ArcherGender, $dto->ArcherDOB, $dto->ArcherID);
+        $stmt->execute();
+        return $stmt->get_result();
     }
 
     public function delete(DeleteArcherDTO $dto): mysqli_result | bool
     {
         $dto->validate();
-        $id = intval(mysqli_real_escape_string($this->conn, $dto->ArcherID));
-        $this->query = "DELETE FROM $this->tableName WHERE ArcherID = $id;";
-        $result = mysqli_query($this->conn, $this->query);
-        return $result;
+
+        $stmt = $this->conn->prepare("DELETE FROM $this->tableName WHERE ArcherID = ?");
+        $stmt->bind_param("i", $dto->ArcherID);
+        $stmt->execute();
+        return $stmt->get_result();
     }
 }
