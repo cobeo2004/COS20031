@@ -40,7 +40,11 @@ switch ($uriSeg[0]) {
         break;
     case 'validator':
         if ($reqMethod == "POST")
-            include_once "./api/Controller/archer/validator.controller.php";
+            include_once "./api/Controller/test/validator.controller.php";
+        break;
+    case 'vulnerable':
+        if ($reqMethod == "POST")
+            include_once "./api/Controller/test/vulnerable.controller.php";
         break;
     default:
         http_response_code(404);

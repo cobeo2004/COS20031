@@ -1,6 +1,6 @@
 <?php
 include_once "api/Validator/Validator.strategy.php";
-
+header("Content-Type: application/json; charset=UTF-8");
 $validator = new ValidatorStrategy();
 $data = json_decode(file_get_contents("php://input"), true);
 
