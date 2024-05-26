@@ -16,7 +16,7 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 -- USE DIRECTIVES
-CREATE TABLE IF NOT EXISTS cos20031_5_db;
+CREATE DATABASE IF NOT EXISTS cos20031_5_db;
 USE cos20031_5_db;
 --
 -- Table structure for table `ArcherTable`

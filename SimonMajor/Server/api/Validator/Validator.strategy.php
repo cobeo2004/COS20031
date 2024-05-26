@@ -10,9 +10,9 @@ final class ValidatorStrategy implements IValidatorStrategy
     public function sanitize(?string $input): string
     {
         if ($input === null) {
-            return '';
+            throw new Exception("Input can not be empty");
         } else if ($input === '') {
-            return '';
+            throw new Exception("Input can not be empty");
         } else {
             return filter_var($input, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         }

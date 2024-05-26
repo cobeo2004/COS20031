@@ -38,7 +38,7 @@ final class ArcherTableService implements IArcherService
         if (!empty($dto->ArcherID)) {
             $conditions[] = "ArcherID = ?";
             $params[] = $dto->ArcherID;
-            $types .= "i"; // assuming ArcherID is an integer
+            $types .= "i"; // integer
         }
         if (!empty($dto->ArcherFirstName)) {
             $conditions[] = "ArcherFirstName = ?";
@@ -75,11 +75,11 @@ final class ArcherTableService implements IArcherService
     public function create(CreateArcherDTO $dto): mysqli_result | bool
     {
         $dto->validate();
-
+        echo $dto->ArcherDOB;
         $stmt = $this->conn->prepare("INSERT INTO $this->tableName (ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB) VALUES (?, ?, ?, ?)");
         $stmt->bind_param("ssss", $dto->ArcherFirstName, $dto->ArcherLastName, $dto->ArcherGender, $dto->ArcherDOB);
         $stmt->execute();
-        return $stmt->get_result();
+        return $stmt->get_result() !== false ? true : false;
     }
 
     public function update(UpdateArcherDTO $dto): mysqli_result | bool
@@ -89,7 +89,7 @@ final class ArcherTableService implements IArcherService
         $stmt = $this->conn->prepare("UPDATE $this->tableName SET ArcherFirstName = ?, ArcherLastName = ?, ArcherGender = ?, ArcherDOB = ? WHERE ArcherID = ?");
         $stmt->bind_param("ssssi", $dto->ArcherFirstName, $dto->ArcherLastName, $dto->ArcherGender, $dto->ArcherDOB, $dto->ArcherID);
         $stmt->execute();
-        return $stmt->get_result();
+        return $stmt->get_result() !== false ? true : false;
     }
 
     public function delete(DeleteArcherDTO $dto): mysqli_result | bool
@@ -99,6 +99,6 @@ final class ArcherTableService implements IArcherService
         $stmt = $this->conn->prepare("DELETE FROM $this->tableName WHERE ArcherID = ?");
         $stmt->bind_param("i", $dto->ArcherID);
         $stmt->execute();
-        return $stmt->get_result();
+        return $stmt->get_result() !== false ? true : false;
     }
 }

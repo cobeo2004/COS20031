@@ -16,6 +16,7 @@ $total_records = $total_row[0];
 try {
     $dto = new UpdateArcherDTO($data, $total_records);
     $result = $archer->update($dto);
+    echo $result;
     if ($result) {
         http_response_code(200);
         echo json_encode(array("message" => "Archer was updated."));
