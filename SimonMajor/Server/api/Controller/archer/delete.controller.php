@@ -16,11 +16,11 @@ try {
     $dto = new DeleteArcherDTO($data, $total_records);
     $result = $archer->delete($dto);
     if ($result) {
-        http_response_code(200);
-        echo json_encode(array("message" => "Archer was deleted."));
-    } else {
         http_response_code(503);
         echo json_encode(array("message" => "Unable to delete archer."));
+    } else {
+        http_response_code(200);
+        echo json_encode(array("message" => "Archer was deleted."));
     }
 } catch (Exception $e) {
     http_response_code(400);

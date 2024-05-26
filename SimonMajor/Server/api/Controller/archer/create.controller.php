@@ -13,11 +13,11 @@ try {
     $dto = new CreateArcherDTO($data);
     $result = $archer->create($dto);
     if ($result) {
-        http_response_code(201);
-        echo json_encode(array("message" => "Archer was created."));
-    } else {
         http_response_code(503);
         echo json_encode(array("message" => "Unable to create archer."));
+    } else {
+        http_response_code(201);
+        echo json_encode(array("message" => "Archer was created."));
     }
 } catch (Exception $e) {
     http_response_code(400);
