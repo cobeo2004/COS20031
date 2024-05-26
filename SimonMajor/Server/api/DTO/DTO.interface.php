@@ -1,5 +1,5 @@
 <?php
 interface IDataTransferObject
 {
-    public function validate();
+    public function validate(): bool;
 }

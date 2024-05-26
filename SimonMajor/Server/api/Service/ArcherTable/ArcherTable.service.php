@@ -25,10 +25,36 @@ final class ArcherTableService implements IArcherService
         return $result;
     }
 
-    public function readBy(string $query): mysqli_result|bool
+    public function readBy(ReadArcherDTO $dto): mysqli_result|bool
     {
-        $query = mysqli_real_escape_string($this->conn, $query);
-        $this->query = "SELECT ArcherID, ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB FROM $this->tableName WHERE $query;";
+        $dto->validate();
+        $conditions = [];
+
+        if (!empty($dto->ArcherID)) {
+            $id = intval(mysqli_real_escape_string($this->conn, $dto->ArcherID));
+            $conditions[] = "ArcherID = $id";
+        }
+        if (!empty($dto->ArcherFirstName)) {
+            $firstName = mysqli_real_escape_string($this->conn, $dto->ArcherFirstName);
+            $conditions[] = "ArcherFirstName = '$firstName'";
+        }
+        if (!empty($dto->ArcherLastName)) {
+            $lastName = mysqli_real_escape_string($this->conn, $dto->ArcherLastName);
+            $conditions[] = "ArcherLastName = '$lastName'";
+        }
+        if (!empty($dto->ArcherGender)) {
+            $gender = mysqli_real_escape_string($this->conn, $dto->ArcherGender);
+            $conditions[] = "ArcherGender = '$gender'";
+        }
+        if (!empty($dto->ArcherDOB)) {
+            $dob = mysqli_real_escape_string($this->conn, $dto->ArcherDOB);
+            $conditions[] = "ArcherDOB = '$dob'";
+        }
+
+        if (count($conditions) > 0) {
+            $this->query = "SELECT ArcherID, ArcherFirstName, ArcherLastName, ArcherGender, ArcherDOB FROM $this->tableName WHERE " . implode(" AND ", $conditions) . ";";
+        }
+
         $result = mysqli_query($this->conn, $this->query);
         return $result;
     }
